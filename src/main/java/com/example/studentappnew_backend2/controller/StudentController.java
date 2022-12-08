@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class StudentController {
-   @GetMapping("/")
-    public String Homepage(){
+   @PostMapping(path="/add",consumes = "application/json",produces = "application/json")
+    public String AddStudents(){
         return "Welcome to my website";
 
     }
