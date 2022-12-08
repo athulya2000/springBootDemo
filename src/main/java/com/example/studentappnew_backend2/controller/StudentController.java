@@ -38,7 +38,15 @@ public class StudentController {
         System.out.println(admissionNumber);
         return (List<Students>) dao.SearchStudent(s.getAdmissionNumber());
     }
-
+    @CrossOrigin(origins = "*")
+    @PostMapping(path="/delete",consumes = "application/json",produces = "application/json")
+    public Map<String,String> Delete(@RequestBody Students s){
+        String id=String.valueOf(s.getId());
+        dao.deleteStudent(s.getId());
+        HashMap<String,String> map=new HashMap<>();
+        map.put("status","success");
+        return map;
+    }
 
 
     }
